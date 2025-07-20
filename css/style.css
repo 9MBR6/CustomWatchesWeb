@@ -1,0 +1,565 @@
+/* 1. Reset y Variables Globales */
+:root {
+  --color-background: #FDFDFD;
+  --color-text: #1a1a1a;
+  --color-primary: #b48c5a; /* Un tono dorado/bronce elegante */
+  --color-primary-dark: #9c784c;
+  --color-light-gray: #e9e9e9;
+  --color-white: #ffffff;
+  --font-main: 'Poppins', sans-serif;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --border-radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* 2. Barra de Navegación */
+.navbar {
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-light-gray);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 1.5rem;
+}
+
+.logo strong {
+  font-weight: 700;
+}
+
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-primary);
+}
+
+/* 3. Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  margin: 2rem 0;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #555;
+}
+
+/* 4. Grid de Relojes */
+.watches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding-bottom: 4rem;
+}
+
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  flex-grow: 1;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+  align-self: center; /* <<< ¡ESTE ES EL CAMBIO! Centra el botón */
+}
+
+.btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* 5. Carrusel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text);
+  border: none;
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-container:hover .carousel-btn {
+  opacity: 1;
+}
+
+.carousel-btn:hover {
+    background-color: var(--color-white);
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* 6. Sección de Contacto */
+.contact-section {
+    background-color: #f5f5f5; /* Un fondo ligeramente distinto */
+    text-align: center;
+    padding: 4rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-section p {
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* 7. Footer y Botón Scroll-Top */
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+  place-items: center;
+  transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.scroll-top.visible {
+    display: grid;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+  background-color: var(--color-primary-dark);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* 8. Responsividad General */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .navbar-container { flex-direction: column; gap: 1rem; }
+  .watches-grid { grid-template-columns: 1fr; }
+}
+
+/* --- 9. PÁGINA DE DETALLE DE PRODUCTO --- */
+.product-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas, pero la primera más pequeña */
+  gap: 3rem;
+  align-items: start;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.product-gallery {
+  width: 100%;
+  position: sticky;
+  top: 100px;
+}
+
+.product-info h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.product-description {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.product-specs h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-light-gray);
+  padding-bottom: 0.5rem;
+}
+
+.product-specs ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+.product-specs li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.product-specs li strong {
+  margin-right: 1rem;
+}
+
+.back-link-container {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.back-link {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* Responsividad para la página de detalle */
+@media (max-width: 900px) {
+  .product-detail-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .product-gallery {
+    position: static;
+    top: auto;
+  }
+  .product-info h2 {
+    font-size: 2rem;
+  }
+}
+
+/* --- 10. PÁGINA MI FILOSOFÍA / SOBRE MÍ --- */
+.about-me-container {
+  max-width: 750px;
+  margin: 4rem auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+.about-me-container h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.about-me-container p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.about-me-container .btn {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Responsividad para la página Sobre Mí */
+@media (min-width: 768px) {
+    .about-me-container p {
+        font-size: 1.2rem;
+    }
+}
+
+/* --- 11. MÉTODO DE COMPRA (PÁGINA DE DETALLE) --- */
+.purchase-method {
+    background-color: #f9f9f9;
+    border: 1px solid var(--color-light-gray);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.purchase-method h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.purchase-method p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Contenedor de los botones de pago/contacto */
+.payment-options {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 1rem; /* Espacio entre los botones */
+    flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea si no caben */
+}
+
+.payment-options .btn {
+    flex-grow: 1; /* Permite que los botones crezcan para ocupar el espacio */
+    flex-basis: 150px; /* Base de ancho para cada botón */
+    text-align: center;
+    padding: 0.8rem;
+    font-size: 0.9rem; /* Un poco más pequeño para que quepan mejor */
+    font-weight: 600;
+}
+
+/* Estilos para cada botón */
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+}
+.btn-whatsapp:hover {
+    background-color: #1DAE54;
+}
+
+.btn-wallapop {
+    background-color: #13C1AC;
+    color: white;
+}
+.btn-wallapop:hover {
+    background-color: #0E9A8A;
+}
+
+.btn-email {
+    background-color: #555;
+    color: white;
+}
+.btn-email:hover {
+    background-color: #333;
+}
+
+
+/* Responsividad para los botones de contacto */
+@media (max-width: 500px) {
+  .payment-options {
+    flex-direction: column; /* Apila los botones */
+    align-items: center;   /* Centra los botones horizontalmente */
+  }
+
+  .payment-options .btn {
+    /* --- ESTA ES LA CORRECCIÓN CLAVE --- */
+    /* Reseteamos las propiedades flex para la vista móvil */
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    
+    /* Definimos un ancho claro y consistente para el botón */
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+/* --- 12. PÁGINA Y FORMULARIO DE CONTACTO --- */
+
+.contact-page-section {
+    max-width: 800px;
+    margin: 4rem auto;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.contact-header p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-light-gray);
+    border-radius: var(--border-radius);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(180, 140, 90, 0.2);
+}
+
+.contact-form .btn {
+  align-self: center; /* <<< ¡AQUÍ ESTÁ EL CAMBIO! */
+  width: auto;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
