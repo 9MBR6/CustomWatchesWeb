@@ -53,10 +53,21 @@ body {
   padding: 0 1.5rem;
 }
 
+/* ===== REGLA .logo ACTUALIZADA ===== */
 .logo {
   text-decoration: none;
   color: var(--color-text);
   font-size: 1.5rem;
+  /* --- Propiedades añadidas para alinear icono y texto --- */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre el icono y el texto */
+}
+
+/* ===== REGLA NUEVA PARA EL ICONO DEL LOGO ===== */
+.logo-icon {
+  height: 30px; /* Puedes ajustar este tamaño */
+  width: auto;
 }
 
 .logo strong {
@@ -157,7 +168,7 @@ body {
   text-align: center;
   transition: background-color 0.3s ease;
   font-weight: 600;
-  align-self: center; /* <<< ¡ESTE ES EL CAMBIO! Centra el botón */
+  align-self: center; 
 }
 
 .btn:hover {
@@ -216,9 +227,9 @@ body {
 .carousel-btn.prev { left: 10px; }
 .carousel-btn.next { right: 10px; }
 
-/* 6. Sección de Contacto */
+/* 6. Sección de Contacto (Antigua, ya no se usa en el index) */
 .contact-section {
-    background-color: #f5f5f5; /* Un fondo ligeramente distinto */
+    background-color: #f5f5f5; 
     text-align: center;
     padding: 4rem 1.5rem;
     margin: 2rem 0;
@@ -290,7 +301,7 @@ footer {
 /* --- 9. PÁGINA DE DETALLE DE PRODUCTO --- */
 .product-detail-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Dos columnas, pero la primera más pequeña */
+  grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: start;
   margin-top: 4rem;
@@ -303,7 +314,7 @@ footer {
   top: 100px;
 }
 
-.product-info h2 {
+.product-info h1 { /* Cambiado de h2 a h1 por SEO */
   font-size: 2.5rem;
   font-weight: 600;
   line-height: 1.2;
@@ -374,7 +385,7 @@ footer {
     position: static;
     top: auto;
   }
-  .product-info h2 {
+  .product-info h1 { /* Cambiado de h2 a h1 */
     font-size: 2rem;
   }
 }
@@ -437,24 +448,22 @@ footer {
     margin-right: auto;
 }
 
-/* Contenedor de los botones de pago/contacto */
 .payment-options {
     display: flex;
-    justify-content: center; /* Centra los botones horizontalmente */
-    gap: 1rem; /* Espacio entre los botones */
-    flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea si no caben */
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .payment-options .btn {
-    flex-grow: 1; /* Permite que los botones crezcan para ocupar el espacio */
-    flex-basis: 150px; /* Base de ancho para cada botón */
+    flex-grow: 1;
+    flex-basis: 150px;
     text-align: center;
     padding: 0.8rem;
-    font-size: 0.9rem; /* Un poco más pequeño para que quepan mejor */
+    font-size: 0.9rem;
     font-weight: 600;
 }
 
-/* Estilos para cada botón */
 .btn-whatsapp {
     background-color: #25D366;
     color: white;
@@ -479,29 +488,22 @@ footer {
     background-color: #333;
 }
 
-
 /* Responsividad para los botones de contacto */
 @media (max-width: 500px) {
   .payment-options {
-    flex-direction: column; /* Apila los botones */
-    align-items: center;   /* Centra los botones horizontalmente */
+    flex-direction: column;
+    align-items: center;
   }
-
   .payment-options .btn {
-    /* --- ESTA ES LA CORRECCIÓN CLAVE --- */
-    /* Reseteamos las propiedades flex para la vista móvil */
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: auto;
-    
-    /* Definimos un ancho claro y consistente para el botón */
     width: 90%;
     max-width: 350px;
   }
 }
 
 /* --- 12. PÁGINA Y FORMULARIO DE CONTACTO --- */
-
 .contact-page-section {
     max-width: 800px;
     margin: 4rem auto;
@@ -557,9 +559,126 @@ footer {
 }
 
 .contact-form .btn {
-  align-self: center; /* <<< ¡AQUÍ ESTÁ EL CAMBIO! */
+  align-self: center;
   width: auto;
   padding: 0.75rem 2rem;
   font-size: 1.1rem;
   cursor: pointer;
+}
+
+/* --- 13. SECCIÓN DE GARANTÍA Y POLÍTICAS --- */
+.policy-section {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-light-gray);
+}
+
+.policy-item {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.policy-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.policy-icon.warranty {
+  background-color: #2ecc71;
+}
+
+.policy-icon.returns {
+  background-color: #3498db;
+}
+
+.policy-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.policy-item p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .policy-section {
+    flex-direction: column;
+  }
+}
+
+/* --- 14. SECCIÓN DE RESEÑAS/VALORACIONES --- */
+.reviews-section {
+  background-color: #f9f9f9;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.reviews-header {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+}
+
+.reviews-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.reviews-header p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.review-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.review-card {
+  background-color: var(--color-white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--color-primary);
+}
+
+.review-card .stars {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.review-card blockquote {
+  font-style: italic;
+  color: #333;
+  border-left: 3px solid var(--color-light-gray);
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-bottom: 1rem;
+}
+
+.review-card cite {
+  font-weight: 600;
+  color: #555;
+}
+
+.reviews-cta {
+  margin-top: 2rem;
 }
