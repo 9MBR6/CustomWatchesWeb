@@ -1,4 +1,3 @@
-
 # CustomWatches - Página Web Oficial
 
 ![Estado](https://img.shields.io/badge/estado-activo-brightgreen)
@@ -51,3 +50,4 @@ Para añadir un nuevo producto a la web, sigue estos pasos:
 ---
 © 2025 Manuel - CustomWatches. Todos los derechos reservados.
 https://9mbr6.github.io/CustomWatchesWeb/
+
